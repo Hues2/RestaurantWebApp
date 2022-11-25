@@ -1,0 +1,85 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using RestaurantWebApp.Data
+@using Microsoft.EntityFrameworkCore;
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@inject AppDbContext _db
+@{
+    var userLoggedIn = "";
+    var number = 0;
+    if (SignInManager.IsSignedIn(User))
+    {
+        var user = await UserManager.GetUserAsync(User);
+        CheckoutCustomer customer = await _db.CheckoutCustomers.FindAsync(user.Email);
+        userLoggedIn = customer.Name;
+        var basketItems = _db.BasketItems.FromSqlRaw("SELECT * FROM BasketItems WHERE BasketID = {0}", customer.BasketID).ToList();
+        foreach (var item in basketItems)
+        {
+            number += item.Quantity;
+        }
+    }
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" type="text/css" href="~/CSS/LayoutCSS.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    @RenderSection("styles", false);
+</head>
+<body onload="onLoadFunction(true)">
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a class="Logo" asp-page="/Index">MyFood</a>
+                </li>
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <li class="rightNav" id="rightNavUser"><span id="var">User: @userLoggedIn.ToString()</span> </li>
+                }
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <li class="rightNav" id="rightNavLogout">
+                        <form asp-page="/Account/Logout" method="post">
+                            <a><input class="logoutButton" type="submit" value="Logout" /></a>
+                        </form>
+                    </li>
+                }
+                <li class="rightNav" id="rightNavContact"><a asp-page="/Admin/AdminInfo">Information</a></li>
+                <li class="rightNav" id="rightNavCheckout"><a asp-page="/Admin/Create">Add Meal</a></li>
+                <li class="rightNav" id="rightNavMenu"><a asp-page="/Admin/Menu">Edit Menu</a></li>
+                <li class="rightNav"><a href="javascript:void(0);" class="icon" onclick="burgerMenuFunction();"> <i class="fa fa-bars"></i> </a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div>
+            @RenderBody()
+        </div>
+    </main>
+
+
+    <footer>
+        <div class="centerFooter">
+            <a href="https://www.pexels.com/" target="_blank">Images</a>
+            <a href="http://validator.w3.org/check?uri=1809717.win.studentwebserver.co.uk/CO5227">Validate HTML</a>
+            <a href="https://jigsaw.w3.org/css-validator/validator?uri=1809717.win.studentwebserver.co.uk/CO5227">Validate CSS</a>
+            <a asp-page="/Admin/Menu">Admin</a>
+            <span class="rightFooter">
+                &copy;2020 myFood
+            </span>
+        </div>
+    </footer>
+
+    @if (IsSectionDefined("Scripts"))
+    {
+        @RenderSection("Scripts", required: true)
+    }
+
+    <script src="~/js/JavaScriptFile.js"></script>
+
+</body>
+</html>

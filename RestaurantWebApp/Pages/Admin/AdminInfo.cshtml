@@ -1,0 +1,160 @@
+﻿@page
+@model RestaurantWebApp.Pages.Admin.AdminInfoModel
+@{
+    ViewData["Title"] = "Admin Data";
+    Layout = "~/Pages/Admin/_AdminLayout.cshtml";
+    var mealColumn = "";
+    float averageRating = 0;
+    float sumOfRatings = 0;
+    float numberOfRatings = 0;
+}
+@section styles{
+    <link rel="stylesheet" type="text/css" href="~/CSS/AdminInfoCSS.css">
+}
+
+<div class="infoForm" id="infoForm">
+    <h1 id="infoH1">
+        Registered Users
+    </h1>
+    <a class="next round" id="userRoundButton" onclick="changeInfo('showOrders')">&#8250</a>
+
+    <hr id="infoHr">
+    <div>(Can't delete users that have order histories)</div>
+    <form method="post">
+        <table id="tableUsers">
+            <thead>
+                <tr>
+                    <th><h2>Name</h2></th>
+                    <th><h2>Email</h2></th>
+                    <th><h2>BasketID</h2></th>
+                    <th><h2>Remove</h2></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var customer in Model.CustomerList)
+                {
+                    <tr>
+                        <td>@customer.Name</td>
+                        <td>@customer.Email</td>
+                        <td>@customer.BasketID</td>
+                        <td>
+                            <a href="#" class="buttonClass" id="delete_@customer.Email" onclick="confirmDelete('@customer.Email', true);">Delete</a>
+                            <input type="submit" value="Confirm" id="confirmDelete_@customer.Email" asp-page-handler="DeleteUser" asp-route-customerEmail="@customer.Email" style="display:none" />
+                            <a href="#" class="buttonClass" id="cancelDelete_@customer.Email" onclick="confirmDelete('@customer.Email', false);" style="display:none" >Cancel</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </form>
+
+</div>
+
+
+<div class="orderHistoryForm" id="orderHistoryForm">
+
+    <h1>
+        Order Histories
+    </h1>
+    <a class="prev round" id="roundButton" onclick="changeInfo('showUsers')">&#8249;</a>
+    <a class="next round" id="roundButton" onclick="changeInfo('showComments')">&#8250;</a>
+    
+    <hr>
+
+        <table id="tableOrders">
+            <thead>
+                <tr>
+                    <th><h2>OrderNo</h2></th>
+                    <th><h2>Email</h2></th>
+                    <th><h2>Meal</h2></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var order in Model.OrderHistories)
+                {
+                    <tr>
+                        <td>@order.OrderNo</td>
+                        <td>@order.Email</td>
+                        <td>
+                            @foreach (var mealOrderNo in Model.OrderItems)
+                            {
+                                if (mealOrderNo.OrderNo == order.OrderNo)
+                                {
+                                    foreach (var meal in Model.Meals)
+                                    {
+                                        if (meal.ID == mealOrderNo.StockID)
+                                        {
+                                            mealColumn = " " + meal.Name + "(" + mealOrderNo.Quantity + "),";
+                                            Model.data += mealColumn;
+                                            mealColumn = "";
+                                        }
+                                    }
+                                }
+                                @Model.data
+                                Model.data = "";
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+</div>
+
+<div class="commentForm" id="commentForm" style="display:none">
+
+    <h1>
+        User Comments
+    </h1>
+    @{
+        string twoDecimalString = "";
+        foreach (var ratings in Model.Comments)
+        {
+            if (ratings.Rating != 0)
+            {
+                sumOfRatings += ratings.Rating;
+                numberOfRatings++;
+            }
+        }
+        averageRating = sumOfRatings / numberOfRatings;
+        twoDecimalString = averageRating.ToString("0.00");
+    }
+    <a class="next round" id="roundButton" onclick="changeInfo('showOrders')">&#8249;</a>
+    <h2>Average Rating: @twoDecimalString</h2>
+
+    <hr>
+
+    <form method="post">
+        <table id="tableComments">
+            <thead>
+                <tr>
+                    <th><h2>Email</h2></th>
+                    <th><h2>Comment</h2></th>
+                    <th><h2>Rating</h2></th>
+                    <th><h2>Delete</h2></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var comment in Model.Comments)
+                {
+                    <tr>
+                        <td>@comment.Email</td>
+                        <td>@comment.UserComment</td>
+                        <td>@comment.Rating</td>
+                        <td>
+                            <a href="#" class="buttonClass" id="delete_@comment.CommentID" onclick="confirmDelete('@comment.CommentID', true);">Delete</a>
+                            <input type="submit" value="Delete" id="confirmDelete_@comment.CommentID" asp-page-handler="DeleteComment" asp-route-commentID="@comment.CommentID" style="display:none" />
+                            <a href="#" class="buttonClass" id="cancelDelete_@comment.CommentID" onclick="confirmDelete('@comment.CommentID', false);" style="display:none">Cancel</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </form>
+
+
+</div>
+
+
+@section Scripts{ 
+    <script src="~/js/JavaScriptFile.js"></script>
+}

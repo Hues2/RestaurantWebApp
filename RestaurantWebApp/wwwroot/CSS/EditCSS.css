@@ -1,0 +1,84 @@
+﻿body {
+}
+
+@keyframes openForm {
+    0% {
+        height: 0;
+    }
+
+    100% {
+        height: 75%;
+    }
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+.editPage {
+    overflow:scroll;
+    width: 50%;
+    animation: 1s ease-out 0s 1 openForm;
+    height: 75%;
+    margin-left: 25%;
+    background-color: white;
+    position: absolute;
+    border: 2px black solid;
+    box-shadow: 0 0 50px 0px black;
+}
+
+    .editPage h1 {
+        animation: fadein 2s;
+        color: burlywood;
+        text-align: center;
+        font-size: 350%;
+        font-style: italic;
+    }
+
+    .editPage hr {
+        animation: fadein 3s;
+    }
+
+    .editPage h2 {
+        animation: fadein 3s;
+        color: black;
+        text-align: center;
+        text-decoration: underline;
+    }
+
+    .editPage form {
+        text-align: center;
+        animation: fadein 4s;
+        font-weight: bold;
+        font-size: 125%;
+    }
+
+    .editPage .div1 {
+        margin-top: 3%;
+    }
+
+    .editPage .button {
+        margin-top: 4%;
+        font-size: 110%;
+        border: 2px solid burlywood;
+        background-color: white;
+        color: black;
+        font-weight: bold;
+        padding: 12px 20px;
+    }
+
+    .editPage select {
+        font-size: 100%;
+        border: 1px solid burlywood;
+        background-color: white;
+    }
+    .editPage .validation {
+        color: red;
+    }

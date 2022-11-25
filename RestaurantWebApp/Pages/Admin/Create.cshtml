@@ -1,0 +1,65 @@
+﻿@page
+@model RestaurantWebApp.Pages.Admin.CreateModel
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Pages/Admin/_AdminLayout.cshtml";
+}
+@section styles{
+    <link rel="stylesheet" type="text/css" href="~/CSS/CreateCSS.css">
+}
+
+<div class="adminPage">
+
+
+    <h1>
+        Add Meal
+    </h1>
+    
+    <hr />
+
+    <h2>
+        Enter the following details to add a meal to the menu
+    </h2>
+
+    <form method="post" enctype="multipart/form-data">
+        <div class="validation" asp-validation-summary="All"></div>
+
+        <div>
+            <h3><label asp-for="aMeal.Name"></label></h3>:
+            <input asp-for="aMeal.Name" />
+            <span asp-validation-for="aMeal.Name"></span>
+        </div>
+        <div class="div1">
+            <h3><label asp-for="aMeal.Price"></label></h3>:
+            <input asp-for="aMeal.Price" />
+            <span asp-validation-for="aMeal.Price"></span>
+        </div>
+        <div class="div1">
+            <h3><label asp-for="aMeal.Description"></label></h3>:
+            <input asp-for="aMeal.Description" />
+            <span asp-validation-for="aMeal.Description"></span>
+        </div>
+
+        <div class="div1">
+            <h3><label asp-for="aMeal.Type"></label></h3>:
+            <select asp-for="aMeal.Type">
+                <option value="Starter">Starter</option>
+                <option value="Main">Main</option>
+                <option value="Dessert">Dessert</option>
+            </select>
+            <span asp-validation-for="aMeal.Type"></span>
+        </div>
+        <div class="div1">
+            <h3>Upload Image:</h3>
+            <input type="file" id="file1" name="file1" multiple="multiple"/>
+        </div>
+        <div class="div1">
+            <h3><label asp-for="aMeal.ImageDescription">Image Description:</label></h3>
+            <input asp-for="aMeal.ImageDescription" />
+            <span asp-validation-for="aMeal.ImageDescription"></span>
+        </div>
+
+        <div class="div1"><input class="button" type="submit" value="Add Meal" asp-page-handler="Create" /></div>
+    </form>
+
+</div>

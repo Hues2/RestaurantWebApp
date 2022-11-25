@@ -1,0 +1,385 @@
+﻿body {
+    background-image: url("../Images/food5.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+@keyframes openForm {
+    0% {
+        height: 0;
+    }
+
+    100% {
+        height: 75%;
+    }
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/*For Mobile Phones*/
+.mainMenu {
+    width: 90%;
+    margin-left:5%;
+    animation: 1s ease-out 0s 1 openForm;
+    height: 99%;
+    background-color: white;
+    position: absolute;
+    border: 2px black solid;
+    box-shadow: 0 0 50px 0px black;
+    padding-bottom: 5%;
+    overflow: auto;
+}
+
+    .mainMenu h1 {
+        animation: fadein 2s;
+        color: burlywood;
+        text-align: center;
+        font-size: 250%;
+        font-style: italic;
+    }
+
+    .mainMenu hr {
+        animation: fadein 2s;
+    }
+
+    .mainMenu .bookmarks{
+        animation: fadein 2s;
+        text-align: center;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        width:100%;
+        font-size:75%;
+    }
+        .mainMenu .bookmarks a{
+            color:black;
+            font-weight:bold;
+            text-decoration:none;
+            margin-right:10%;
+            margin-left:10%;
+            font-style:italic;
+
+        }
+            .mainMenu .bookmarks a:visited {
+                color:black;
+                text-decoration:none;
+            }
+            .mainMenu .bookmarks a:hover {
+                color: burlywood;
+                text-decoration: none;
+            }
+    .mainMenu .searchBar {
+        animation: fadein 2s;
+        text-align: center;
+        margin-bottom: 2%;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        background-color:white;
+        
+    }
+
+        .mainMenu .searchBar input[type=text] {
+            width: 25%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: none;
+            border-bottom: 2px solid black;
+            font-size: 15px;
+        }
+
+        .mainMenu .searchBar input[type=submit] {
+            border: 2px solid burlywood;
+            background-color: white;
+            color: black;
+            font-weight: bold;
+            padding: 12px 20px;
+            font-size: 15px;
+        }
+
+            .mainMenu .searchBar input[type=submit]:hover {
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                cursor: pointer;
+            }
+
+    .mainMenu .searchInline {
+        display: inline;
+    }
+
+
+    .mainMenu p{
+        text-align: center;
+        text-decoration:none;
+    }
+    .mainMenu p a{
+        text-decoration:underline;
+        color:black;
+    }
+
+    .mainMenu p a:visited{
+        text-decoration:underline;
+        color:black;
+    }
+
+
+    .mainMenu .item {
+        animation: fadein 3s;
+        margin-bottom: 5%;
+        text-align: center;
+    }
+        .mainMenu .item h3 {
+            display: inline;
+        }
+        
+        .mainMenu .item .image img {
+            text-align: center;
+            border-radius: 30%;
+            margin-top:2%;
+            width: 20%;
+            height: 20%;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        .mainMenu .item h4 {
+            text-align: center;
+            margin-bottom: 0.5%;
+        }
+
+
+.editDeleteButtons{
+    margin-top:0.5%;
+    margin-bottom:6%
+}
+.editDeleteButtons a{
+    border: 2px solid burlywood;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    font-size: 100%;
+    padding:0.5%;
+    text-decoration:none;
+}
+
+    .editDeleteButtons a:visited {
+        border: 2px solid burlywood;
+        background-color: white;
+        color: black;
+        font-weight: bold;
+        font-size: 100%;
+        padding: 0.5%;
+        text-decoration: none;
+    }
+
+    .editDeleteButtons input {
+        border: 2px solid burlywood;
+        background-color: white;
+        color: black;
+        font-weight: bold;
+        font-size: 100%;
+        padding: 0.5%;
+        text-decoration: none;
+    }
+
+.addButton input[type=submit] {
+    border: 2px solid burlywood;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    padding: 10px 18px;
+    font-size: 15px;
+    cursor: pointer;
+    margin-top: 2%;
+}
+
+    /*For Desktops*/
+    @media only screen and (min-width: 860px) {
+        .mainMenu {
+            width: 60%;
+            margin-left: 20%;
+            animation: 1s ease-out 0s 1 openForm;
+            height: 75%;
+            background-color: white;
+            position: absolute;
+            border: 2px black solid;
+            box-shadow: 0 0 50px 0px black;
+            margin-bottom: 1%;
+            overflow: scroll;
+        }
+
+            .mainMenu h1 {
+                animation: fadein 2s;
+                color: burlywood;
+                text-align: center;
+                font-size: 350%;
+                font-style: italic;
+            }
+
+            .mainMenu hr {
+                animation: fadein 2s;
+            }
+
+            .mainMenu .bookmarks {
+                animation: fadein 2s;
+                text-align: center;
+                position: -webkit-sticky;
+                position: sticky;
+                top: 0;
+                width: 100%;
+            }
+
+                .mainMenu .bookmarks a {
+                    font-size: 150%;
+                    color: black;
+                    font-weight: bold;
+                    text-decoration: none;
+                    margin-right: 10%;
+                    margin-left: 10%;
+                    font-style: italic;
+                }
+
+                    .mainMenu .bookmarks a:visited {
+                        color: black;
+                        text-decoration: none;
+                    }
+
+                    .mainMenu .bookmarks a:hover {
+                        color: burlywood;
+                        text-decoration: none;
+                    }
+
+            .mainMenu .searchBar {
+                animation: fadein 2s;
+                text-align: center;
+                margin-bottom: 2%;
+                position: -webkit-sticky;
+                position: sticky;
+                top: 0;
+                background-color: white;
+            }
+
+                .mainMenu .searchBar input[type=text] {
+                    width: 25%;
+                    padding: 12px 20px;
+                    margin: 8px 0;
+                    box-sizing: border-box;
+                    border: none;
+                    border-bottom: 2px solid black;
+                    font-size: 15px;
+                }
+
+                .mainMenu .searchBar input[type=submit] {
+                    border: 2px solid burlywood;
+                    background-color: white;
+                    color: black;
+                    font-weight: bold;
+                    padding: 12px 20px;
+                    font-size: 15px;
+                }
+
+                    .mainMenu .searchBar input[type=submit]:hover {
+                        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                        cursor: pointer;
+                    }
+
+            .mainMenu .searchInline {
+                display: inline;
+            }
+
+
+            .mainMenu p {
+                text-align: center;
+                text-decoration: none;
+            }
+
+                .mainMenu p a {
+                    text-decoration: underline;
+                    color: black;
+                }
+
+                    .mainMenu p a:visited {
+                        text-decoration: underline;
+                        color: black;
+                    }
+
+
+            .mainMenu .item {
+                animation: fadein 3s;
+                margin-bottom: 5%;
+                text-align: center;
+            }
+
+                .mainMenu .item h3 {
+                    display: inline;
+                }
+
+                .mainMenu .item .image img {
+                    text-align: center;
+                    border-radius: 30%;
+                    margin-top: 2%;
+                    width: 20%;
+                    height: 20%;
+                    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                }
+
+                .mainMenu .item h4 {
+                    text-align: center;
+                    margin-bottom: 0.5%;
+                }
+
+
+        .editDeleteButtons {
+            margin-top: 0.5%;
+            margin-bottom: 6%
+        }
+
+            .editDeleteButtons a {
+                border: 2px solid burlywood;
+                background-color: white;
+                color: black;
+                font-weight: bold;
+                font-size: 100%;
+                padding: 0.5%;
+                text-decoration: none;
+            }
+
+                .editDeleteButtons a:visited {
+                    border: 2px solid burlywood;
+                    background-color: white;
+                    color: black;
+                    font-weight: bold;
+                    font-size: 100%;
+                    padding: 0.5%;
+                    text-decoration: none;
+                }
+
+            .editDeleteButtons input {
+                border: 2px solid burlywood;
+                background-color: white;
+                color: black;
+                font-weight: bold;
+                font-size: 100%;
+                padding: 0.5%;
+                text-decoration: none;
+            }
+
+        .addButton input[type=submit] {
+            border: 2px solid burlywood;
+            background-color: white;
+            color: black;
+            font-weight: bold;
+            padding: 10px 18px;
+            font-size: 15px;
+            cursor: pointer;
+            margin-top: 2%;
+        }
+    }

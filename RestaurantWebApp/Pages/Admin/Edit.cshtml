@@ -1,0 +1,39 @@
+﻿@page "{id:int}"
+@model RestaurantWebApp.Pages.Admin.EditModel
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Pages/Admin/_AdminLayout.cshtml";
+}
+@section styles{
+    <link rel="stylesheet" type="text/css" href="~/CSS/EditCSS.css">
+}
+
+<div class="editPage">
+    <h1> Edit Page </h1>
+    <hr/>
+    <h2>Edit Meal: @Model.Meal.Name</h2>
+
+    <form method="post" enctype="multipart/form-data">
+        <div class="validation" asp-validation-summary="All"></div>
+        <input asp-for="Meal.ID" type="hidden" />
+        <input asp-for="Meal.Active" type="hidden" />
+        <div> Name: <input asp-for="Meal.Name" /></div>
+        <div class="div1"> Price: <input asp-for="Meal.Price" /></div>
+        <div class="div1"> Description: <input asp-for="Meal.Description" /></div>
+        <div class="div1">
+            Type:
+            <select asp-for="Meal.Type">
+                <option value="Starter">Starter</option>
+                <option value="Main">Main</option>
+                <option value="Dessert">Dessert</option>
+            </select>
+        </div>
+        <div class="div1">
+            Upload Image:
+            <input type="file" class="file1" name="file1" multiple="multiple" />
+        </div>
+        <div class="div1">Image Description: <input asp-for="Meal.ImageDescription" /></div>
+
+        <div class="div1"><input class="button" type="submit" value="Save" asp-page-handler="Save" /></div>
+    </form>
+</div>

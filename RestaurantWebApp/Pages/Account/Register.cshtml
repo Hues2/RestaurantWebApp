@@ -1,0 +1,44 @@
+﻿@page
+@model RestaurantWebApp.Pages.Account.RegisterModel
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Pages/_Layout.cshtml";
+}
+@section styles{
+    <link rel="stylesheet" type="text/css" href="~/CSS/RegisterCSS.css">
+}
+
+<div class="registerForm">
+    <h1>Register</h1>
+    <hr />
+    <form class="form" method="post">
+        <h2>Create a new account</h2>
+
+        <div class="validation" asp-validation-summary="All"></div>
+        <div class="div1">
+            <h3><label asp-for="Input.Name"></label></h3>
+            <input asp-for="Input.Name" />
+            <span asp-validation-for="Input.Name"></span>
+        </div>
+
+        <div class="div1">
+            <h3><label asp-for="Input.Email"></label></h3>
+            <input asp-for="Input.Email" />
+            <span asp-validation-for="Input.Email"></span>
+        </div>
+
+        <div class="div1">
+            <h3><label asp-for="Input.Password"></label></h3>
+            <input asp-for="Input.Password" />
+            <span asp-validation-for="Input.Password"></span>
+        </div>
+
+        <div class="div1">
+            <h3><label asp-for="Input.ConfirmPassword"></label></h3>
+            <input asp-for="Input.ConfirmPassword" />
+            <span asp-validation-for="Input.ConfirmPassword"></span>
+        </div>
+
+        <input type="submit" asp-page-handler="Register" value="Register" />
+    </form>
+</div>

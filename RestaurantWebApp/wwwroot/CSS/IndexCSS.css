@@ -1,0 +1,56 @@
+﻿body {
+}
+.preload-images {
+    background: url("../Images/food2.jpg") no-repeat -9999px -9999px, url("../Images/food45.jpg") no-repeat -9999px -9999px, url("../Images/food5.jpg") no-repeat -9999px -9999px;
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translate(-100%);
+    }
+
+    100% {
+        transform: translate(0);
+    }
+}
+
+.welcome {
+    animation: 1s ease-out 0s 1 slideInFromLeft;
+    float: left;
+    text-align: center;
+    color: white;
+    margin-top: 25%;
+    font-size: 150%;
+    font-style: oblique;
+    margin-left: 1%;
+    position: absolute;
+    bottom: 150px;
+}
+
+.center {
+    text-align: center;
+    box-sizing: border-box;
+    display: inline-block;
+    border: solid;
+    border-color: white;
+    transition: transform 1s;
+}
+
+    .center a {
+        color:white;
+        text-decoration: none;
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+
+    .center a:visited {
+        color: white;
+    }
+
+    .center a:hover {
+        color: burlywood;
+    }
+
+    .center:hover {
+        transform: rotate(360deg);
+    }

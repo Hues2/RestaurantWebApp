@@ -1,0 +1,150 @@
+﻿@page
+@model RestaurantWebApp.Pages.MenuModel
+@{
+    ViewData["Title"] = "Menu";
+    Layout = "~/Pages/_Layout.cshtml";
+}
+@section styles{
+    <link rel="stylesheet" type="text/css" href="~/CSS/MenuCSS.css">
+}
+@using Microsoft.AspNetCore.Identity
+@using RestaurantWebApp.Data
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+
+<div class="mainMenu">
+    <h1>
+        Menu
+    </h1>
+    <hr />
+
+    <div class="bookmarks">
+        <a href="#Starters">Starters</a>
+        <a href="#Mains">Main Dishes</a>
+        <a href="#Desserts">Desserts</a>
+    </div>
+
+    <hr />
+    <div class="searchBar">
+        <form method="post">
+            <div class="searchInline"><input type="text" placeholder="Search for a meal" asp-for="Search" /></div>
+            <div class="searchInline"><input type="submit" value="Search" asp-page-handler="Search"></div>
+        </form>
+    </div>
+    <div class="loginToAdd">
+        @if (!SignInManager.IsSignedIn(User))
+        {
+            <p><a asp-page="/Account/Login">Log-in</a> to add a meal to your cart</p>
+        }
+    </div>
+
+    <div class="Starters" id="Starters">
+        <h1>Starters</h1>
+        @foreach (var starter in Model.Meal)
+        {
+            if (starter.Type == "Starter")
+            {
+                <div class="item">
+                    <div class="name"><h3>@starter.Name</h3></div>
+                    <div class="description">@starter.Description</div>
+                    <div class="price">@starter.Price.ToString("C")</div>
+
+                    @{
+                        try
+                        {
+                            <div class="image">
+                                <img src="@string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(starter.ImageData))" alt="@starter.ImageDescription">
+                            </div>
+                        }
+                        catch
+                        {
+                            <div class="image"><h4>No image available</h4></div>
+                        }
+                    }
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <form method="post">
+                            <div class="addButton">
+                                <input type="submit" value="Add to basket" asp-page-handler="Add" asp-route-ItemID="@starter.ID" />
+                            </div>
+                        </form>
+                    }
+                </div>
+
+            }
+        }
+    </div>
+
+    <div class="Mains" id="Mains">
+        <h1>Main Dishes</h1>
+        @foreach (var main in Model.Meal)
+        {
+            if (main.Type == "Main")
+            {
+                <div class="item">
+                    <div class="name"><h3>@main.Name</h3></div>
+                    <div class="description">@main.Description</div>
+                    <div class="price">@main.Price.ToString("C")</div>
+
+                    @{
+                        try
+                        {
+                            <div class="image">
+                                <img src="@string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(main.ImageData))" alt="@main.ImageDescription">
+                            </div>
+                        }
+                        catch
+                        {
+                            <div class="image"><h4>No image available</h4></div>
+                        }
+                    }
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <form method="post">
+                            <div class="addButton">
+                                <input type="submit" value="Add to basket" asp-page-handler="Add" asp-route-itemID="@main.ID" />
+                            </div>
+                        </form>
+                    }
+                </div>
+            }
+        }
+    </div>
+
+    <div class="Desserts" id="Desserts">
+        <h1>Desserts</h1>
+        @foreach (var dessert in Model.Meal)
+        {
+            if (dessert.Type == "Dessert")
+            {
+                <div class="item">
+                    <div class="name"><h3>@dessert.Name</h3></div>
+                    <div class="description">@dessert.Description</div>
+                    <div class="price">@dessert.Price.ToString("C")</div>
+
+                    @{
+                        try
+                        {
+                            <div class="image">
+                                <img src="@string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(dessert.ImageData))" alt="@dessert.ImageDescription">
+                            </div>
+                        }
+                        catch
+                        {
+                            <div class="image"><h4>No image available</h4></div>
+                        }
+                    }
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <form method="post">
+                            <div class="addButton">
+                                <input type="submit" value="Add to basket" asp-page-handler="Add" asp-route-itemID="@dessert.ID" />
+                            </div>
+                        </form>
+                    }
+                </div>
+            }
+        }
+    </div>
+</div>

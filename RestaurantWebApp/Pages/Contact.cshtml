@@ -1,0 +1,62 @@
+﻿@page
+@model RestaurantWebApp.Pages.ContactModel
+
+@{
+    ViewData["Title"] = "Contact";
+    Layout = "~/Pages/_Layout.cshtml";
+}
+@section styles{
+    <link rel="stylesheet" type="text/css" href="~/CSS/ContactCSS.css">
+}
+@using Microsoft.AspNetCore.Identity
+@using RestaurantWebApp.Data
+@using System.Linq;
+@using Microsoft.EntityFrameworkCore;
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@inject AppDbContext _db
+
+<div class="contactForm">
+    <h1 class="title">
+        Contact Us
+    </h1>
+
+    <hr>
+
+    <h2>
+        Enter your message here:
+    </h2>
+
+    <form method="post">
+
+        <div>
+            <textarea cols="40" rows="10" type="text" class="comment" asp-for="aComment.UserComment">
+            </textarea>
+        </div>
+        <div class="ratingTitle">
+            <h3>Rate your experience:</h3>
+        </div>
+        <div class="stars">
+            <h1> <span id="star1" onclick="makeStarBurlywood('star1')" onmouseover="makeStarTan('star1')" onmouseout="makeStarBlack()">&#9733;</span></h1>
+            <h1> <span id="star2" onclick="makeStarBurlywood('star2')" onmouseover="makeStarTan('star2')" onmouseout="makeStarBlack()">&#9733;</span></h1>
+            <h1> <span id="star3" onclick="makeStarBurlywood('star3')" onmouseover="makeStarTan('star3')" onmouseout="makeStarBlack()">&#9733;</span></h1>
+            <h1> <span id="star4" onclick="makeStarBurlywood('star4')" onmouseover="makeStarTan('star4')" onmouseout="makeStarBlack()">&#9733;</span></h1>
+            <h1> <span id="star5" onclick="makeStarBurlywood('star5')" onmouseover="makeStarTan('star5')" onmouseout="makeStarBlack()">&#9733;</span></h1>
+        </div>
+        <div class="invisibleInput">
+            <input id="starInput" type="text" value="0" asp-for="aComment.Rating" />
+        </div>
+
+
+        <div>
+            <input type="submit" class="send" value="Send" asp-page-handler="Send" />
+        </div>
+
+    </form>
+
+</div>
+
+@section Scripts{
+
+    <script src="~/js/JavaScriptFile.js"></script>
+}

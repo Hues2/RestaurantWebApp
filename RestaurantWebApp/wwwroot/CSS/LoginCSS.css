@@ -1,0 +1,206 @@
+﻿body {
+}
+
+@keyframes openForm {
+    0% {
+        height: 0;
+    }
+
+    100% {
+        height: 50%;
+    }
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+.loginForm {
+    width: 90%;
+    margin-left:5%;
+    animation: 1s ease-out 0s 1 openForm;
+    height: 50%;
+    margin-bottom: 10%;
+    background-color: white;
+    position: absolute;
+    border: 2px black solid;
+    box-shadow: 0 0 50px 0px black;
+    overflow: auto;
+    text-align:center;
+}
+
+    .loginForm h1 {
+        animation: fadein 4s;
+        color: burlywood;
+        text-align: center;
+        font-size: 350%;
+        font-style: italic;
+    }
+
+hr {
+    animation: fadein 3s;
+}
+
+.form {
+    animation: fadein 4s;
+    text-align: center;
+    padding-top: 5%;
+}
+
+    .form .div1 {
+        margin-bottom: 3%;
+    }
+
+    .form h2 {
+        display: inline;
+        font-style: italic;
+    }
+
+    .form h3 {
+        display: inline;
+        font-style: italic;
+        margin-right: 1%;
+    }
+
+    .form input[type=submit]{
+        margin-bottom: 2%;
+        font-size:110%;
+    }
+
+.link {
+    margin-bottom: 5%;
+}
+.link a{
+    color: black;
+    font-size: 105%;
+    margin-bottom: 10%;
+}
+.link a:visited{
+    color: black;
+}
+
+.loggedIn {
+    animation: fadein 4s;
+    text-align: center;
+    padding-top: 5%;
+}
+.loggedIn h2{
+    margin-bottom: 6%;
+    font-weight:normal;
+}
+
+.loggedIn input{
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 150%;
+    text-decoration: underline;
+    font-style:italic;
+    font-weight:bold;
+}
+    .loggedIn input:hover {
+        color: burlywood;
+    }
+
+@media only screen and (min-width: 768px) {
+    .loginForm {
+        width: 40%;
+        animation: 1s ease-out 0s 1 openForm;
+        height: 50%;
+        margin-bottom: 7%;
+        margin-left: 30%;
+        background-color: white;
+        position: absolute;
+        border: 2px black solid;
+        box-shadow: 0 0 50px 0px black;
+        overflow: auto;
+        text-align: center;
+    }
+
+        .loginForm h1 {
+            animation: fadein 4s;
+            color: burlywood;
+            text-align: center;
+            font-size: 350%;
+            font-style: italic;
+        }
+
+    hr {
+        animation: fadein 3s;
+    }
+
+    .form {
+        animation: fadein 4s;
+        text-align: center;
+        padding-top: 5%;
+    }
+
+        .form .div1 {
+            margin-bottom: 3%;
+        }
+
+        .form h2 {
+            display: inline;
+            font-style: italic;
+        }
+
+        .form h3 {
+            display: inline;
+            font-style: italic;
+            margin-right: 1%;
+        }
+
+        .form input[type=submit] {
+            margin-bottom: 2%;
+            font-size: 110%;
+        }
+
+    .link {
+        margin-bottom: 5%;
+    }
+
+        .link a {
+            color: black;
+            font-size: 105%;
+            margin-bottom: 10%;
+        }
+
+            .link a:visited {
+                color: black;
+            }
+
+    .loggedIn {
+        animation: fadein 4s;
+        text-align: center;
+        padding-top: 5%;
+    }
+
+        .loggedIn h2 {
+            margin-bottom: 6%;
+            font-weight: normal;
+        }
+
+        .loggedIn input {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 150%;
+            text-decoration: underline;
+            font-style: italic;
+            font-weight: bold;
+        }
+
+            .loggedIn input:hover {
+                color: burlywood;
+            }
+}
+
+
+

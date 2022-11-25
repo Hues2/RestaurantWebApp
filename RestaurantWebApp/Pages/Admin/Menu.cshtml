@@ -1,0 +1,141 @@
+﻿@page
+@model RestaurantWebApp.Pages.Admin.MenuModel
+@{
+    ViewData["Title"] = "Menu";
+    Layout = "~/Pages/Admin/_AdminLayout.cshtml";
+}
+@section styles{
+    <link rel="stylesheet" type="text/css" href="~/CSS/MenuCSS.css">
+}
+
+<div class="mainMenu">
+    <h1>
+        Edit Menu
+    </h1>
+    <hr />
+
+    <div class="bookmarks">
+        <a href="#Starters">Starters</a>
+        <a href="#Mains">Main Dishes</a>
+        <a href="#Desserts">Desserts</a>
+    </div>
+
+    <hr />
+
+    <div class="searchBar">
+        <form method="post">
+            <div class="searchInline"><input type="text" placeholder="Search for a meal" asp-for="Search" /></div>
+            <div class="searchInline"><input type="submit" value="Search" asp-page-handler="Search"></div>
+        </form>
+    </div>
+
+
+    <form method="post">
+        <div class="Starters" id="Starters">
+            <h1>Starters</h1>
+            @foreach (var starter in Model.Meal)
+            {
+                if (starter.Type == "Starter")
+                {
+                    <div class="item">
+                        <div class="name"><h3>@starter.Name</h3></div>
+                        <div class="description">@starter.Description</div>
+                        <div class="price">@starter.Price.ToString("C")</div>
+                        @{
+                            try
+                            {
+                                <div class="image">
+                                    <img src="@string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(starter.ImageData))" alt="@starter.ImageDescription">
+                                </div>
+                            }
+                            catch
+                            {
+                                <div class="image"><h4>No image available</h4></div>
+                            }
+                        }
+
+                        <div class="Active"> Active: @starter.Active</div>
+                        <div class="editDeleteButtons">
+                            <a asp-page="/Admin/Edit" asp-route-id="@starter.ID">Edit</a>
+                            <input type="submit" value="Activate/Deactivate" asp-page-handler="Activate" asp-route-mealID="@starter.ID" />
+                        </div>
+                    </div>
+
+                }
+            }
+        </div>
+
+        <div class="Mains" id="Mains">
+            <h1>Main Dishes</h1>
+            @foreach (var main in Model.Meal)
+            {
+                if (main.Type == "Main")
+                {
+                    <div class="item">
+                        <div class="name"><h3>@main.Name</h3></div>
+                        <div class="description">@main.Description</div>
+                        <div class="price">@main.Price.ToString("C")</div>
+
+                        @{
+                            try
+                            {
+                                <div class="image">
+                                    <img src="@string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(main.ImageData))" alt="@main.ImageDescription">
+                                </div>
+
+                            }
+                            catch
+                            {
+                                <div class="image"><h4>No image available</h4></div>
+                            }
+                        }
+
+
+                        <div> Active: @main.Active</div>
+                        <div class="editDeleteButtons">
+                            <a asp-page="/Admin/Edit" asp-route-id="@main.ID">Edit</a>
+                            <input type="submit" value="Activate/Deactivate" asp-page-handler="Activate" asp-route-mealID="@main.ID" />
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+
+        <div class="Desserts" id="Desserts">
+            <h1>Desserts</h1>
+            @foreach (var dessert in Model.Meal)
+            {
+                if (dessert.Type == "Dessert")
+                {
+                    <div class="item">
+                        <div class="name"><h3>@dessert.Name</h3></div>
+                        <div class="description">@dessert.Description</div>
+                        <div class="price">@dessert.Price.ToString("C")</div>
+
+                        @{
+                            try
+                            {
+                                <div class="image">
+                                    <img src="@string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(dessert.ImageData))" alt="@dessert.ImageDescription">
+                                </div>
+
+                            }
+                            catch
+                            {
+                                <div class="image"><h4>No image available</h4></div>
+                            }
+                        }
+
+
+                        <div> Active: @dessert.Active</div>
+                        <div class="editDeleteButtons">
+                            <a asp-page="/Admin/Edit" asp-route-id="@dessert.ID">Edit</a>
+                            <input type="submit" value="Activate/Deactivate" asp-page-handler="Activate" asp-route-mealID="@dessert.ID" />
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </form>
+
+</div>

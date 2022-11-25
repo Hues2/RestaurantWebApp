@@ -1,0 +1,317 @@
+﻿body {
+    background-image: url("../Images/food5.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment:fixed;
+    margin: 0;
+
+}
+/*Phone*/
+
+.icon {
+    display: inline-block;
+}
+
+.Logo {
+    font-size: 400%;
+    text-align: center;
+}
+
+#logo {
+    display: block;
+}
+
+ul {
+    list-style-type: none;
+    overflow: hidden;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+}
+
+li {
+    text-align: center;
+}
+
+.logoutButton {
+    text-decoration: none;
+    color: white;
+    border: none;
+    background: none;
+    color: white;
+    font-weight: bold;
+    font-size: 90%;
+    cursor: pointer;
+    font-style: italic;
+    font-family: inherit;
+}
+
+    .logoutButton:hover {
+        color: burlywood;
+    }
+
+.rightNav{
+    font-size:180%;
+}
+#rightNavUser {
+    color: white;
+    display: none;
+}
+
+#rightNavLogout {
+    display: none;
+}
+
+#rightNavContact {
+    display: none;
+}
+
+#rightNavCheckout {
+    display: none;
+}
+
+#rightNavMenu {
+    display: none;
+}
+
+#rightNavLogin {
+    display: none;
+}
+
+li a {
+    text-decoration: none;
+    display: block;
+    color: white;
+    padding: 14px 16px;
+}
+
+    li a:hover {
+        color: burlywood;
+        border: solid white;
+        box-shadow: 0 0 50px 0px black;
+    }
+
+li .button {
+    text-decoration: none;
+    display: block;
+    color: white;
+    padding: 14px 16px;
+    border: none;
+    background: none;
+    color: white;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 90%;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+    li .button:hover {
+        color: burlywood;
+        border: solid white;
+        box-shadow: 0 0 50px 0px black;
+    }
+
+
+footer {
+    bottom: 0px;
+    position: fixed;
+    text-align: center;
+    background-color: black;
+    width: 100%;
+    height: 30px;
+}
+
+.centerFooter {
+    padding: 6px;
+    font-size: 100%;
+}
+
+    .centerFooter a {
+        color: white;
+        text-decoration: none;
+        padding-right: 15px;
+    }
+
+        .centerFooter a:visited {
+            color: white;
+        }
+
+        .centerFooter a:hover {
+            text-decoration: underline;
+        }
+
+.rightFooter {
+    float: right;
+    text-decoration: none;
+    color: white;
+    font-size: 100%;
+}
+
+.rightFoote:hover {
+    text-decoration: none;
+}
+
+
+
+/*Desktop*/
+@media only screen and (min-width: 1105px) {
+    #rightNavUser {
+        display: block;
+    }
+
+    #rightNavLogout {
+        display: block;
+    }
+
+    #rightNavContact {
+        display: block;
+    }
+
+    #rightNavCheckout {
+        display: block;
+    }
+
+    #rightNavMenu {
+        display: block;
+    }
+
+    #rightNavLogin {
+        display: block;
+    }
+
+    .icon {
+        display: block;
+    }
+
+    ul {
+        list-style-type: none;
+        overflow: hidden;
+        font-size: 150%;
+        font-weight: bold;
+        font-style: italic;
+    }
+
+
+    li {
+        float: left;
+    }
+
+        li a {
+            text-decoration: none;
+            display: block;
+            color: white;
+            padding: 14px 16px;
+        }
+
+            li a:hover {
+                color: burlywood;
+                border: solid white;
+                box-shadow: 0 0 50px 0px black;
+            }
+
+        li .button {
+            text-decoration: none;
+            display: block;
+            color: white;
+            padding: 14px 16px;
+            border: none;
+            background: none;
+            color: white;
+            font-weight: bold;
+            font-style: italic;
+            font-size: 90%;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+            li .button:hover {
+                color: burlywood;
+                border: solid white;
+                box-shadow: 0 0 50px 0px black;
+            }
+
+    #var {
+        display: block;
+        color: white;
+        padding: 14px 16px;
+        font-style: italic;
+        text-decoration: underline;
+    }
+
+
+    .rightNav {
+        float: right;
+        font-size: 100%;
+        display: block;
+    }
+
+    #rightNav {
+        display: block;
+    }
+
+    .Logo {
+        font-size: 350%;
+    }
+
+    .logoutButton {
+        text-decoration: none;
+        display: block;
+        color: white;
+        border: none;
+        background: none;
+        color: white;
+        font-weight: bold;
+        font-size: 90%;
+        cursor: pointer;
+        font-style: italic;
+        font-family: inherit;
+    }
+
+        .logoutButton:hover {
+            color: burlywood;
+        }
+
+    footer {
+        bottom: 0px;
+        position: fixed;
+        text-align: center;
+        background-color: black;
+        width: 100%;
+        height: 30px;
+    }
+
+    .centerFooter {
+        padding: 6px;
+        font-size: 100%;
+    }
+
+        .centerFooter a {
+            color: white;
+            text-decoration: none;
+            padding-right: 15px;
+        }
+
+            .centerFooter a:visited {
+                color: white;
+            }
+
+            .centerFooter a:hover {
+                text-decoration: underline;
+            }
+
+    .rightFooter {
+        float: right;
+        text-decoration: none;
+        color: white;
+        font-size: 100%;
+    }
+
+    .rightFoote:hover {
+        text-decoration: none;
+    }
+}
+
+
+

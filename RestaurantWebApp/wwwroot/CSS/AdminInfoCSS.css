@@ -1,0 +1,469 @@
+﻿body {
+}
+
+@keyframes openForm {
+    0% {
+        height: 0;
+    }
+
+    100% {
+        height: 55%;
+    }
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/*Phone*/
+.infoForm {
+    width: 90%;
+    height: 55%;
+    margin-bottom: 7%;
+    margin-left: 5%;
+    background-color: white;
+    position: absolute;
+    border: 2px black solid;
+    box-shadow: 0 0 50px 0px black;
+    overflow: auto;
+    text-align: center;
+    animation: 1s ease-out 0s 1 openForm;
+}
+
+    .infoForm h1 {
+        animation: fadein 3s;
+        color: burlywood;
+        text-align: center;
+        font-size: 350%;
+        font-style: italic;
+    }
+
+hr {
+    animation: fadein 3s;
+}
+
+
+
+#tableUsers {
+    display: inline-block;
+    animation: fadein 3s;
+}
+
+td {
+    width: 20%;
+    border-bottom: 2px solid black;
+    padding-top: 3%;
+}
+
+tr {
+    border-bottom: 2px solid black;
+}
+
+
+.next {
+    background-color: burlywood;
+    color: white;
+}
+
+.prev {
+    background-color: burlywood;
+    color: white;
+}
+
+.round {
+    border-radius: 50%;
+}
+
+#roundButton {
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+}
+
+    #roundButton:hover {
+        background-color: #ddd;
+        color: black;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        cursor: pointer;
+    }
+
+#userRoundButton {
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+    animation: fadein 3s;
+}
+
+    #userRoundButton:hover {
+        background-color: #ddd;
+        color: black;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        cursor: pointer;
+    }
+
+.infoForm input[type=submit] {
+    border: 2px solid burlywood;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    padding: 12px 20px;
+    font-size: 15px;
+    font-family: Arial;
+    display: inline-block;
+}
+
+    .infoForm input[type=submit]:hover {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        cursor: pointer;
+    }
+
+.buttonClass {
+    border: 2px solid burlywood;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    padding: 12px 20px;
+    font-size: 15px;
+    text-decoration: none;
+    font-family: Arial;
+    display: inline-block;
+}
+
+    .buttonClass:hover {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        cursor: pointer;
+        background-color: white;
+    }
+
+
+.orderHistoryForm {
+    width: 90%;
+    height: 55%;
+    margin-bottom: 7%;
+    margin-left: 5%;
+    background-color: white;
+    position: absolute;
+    border: 2px black solid;
+    box-shadow: 0 0 50px 0px black;
+    overflow: auto;
+    text-align: center;
+    display: none;
+}
+
+    .orderHistoryForm h1 {
+        color: burlywood;
+        text-align: center;
+        font-size: 350%;
+        font-style: italic;
+    }
+
+    .orderHistoryForm a {
+    }
+
+        .orderHistoryForm a:hover {
+            cursor: pointer;
+        }
+
+
+.commentForm {
+    width: 90%;
+    height: 55%;
+    margin-bottom: 7%;
+    margin-left: 5%;
+    background-color: white;
+    position: absolute;
+    border: 2px black solid;
+    box-shadow: 0 0 50px 0px black;
+    overflow: auto;
+    text-align: center;
+    display: none;
+}
+
+    .commentForm h1 {
+        color: burlywood;
+        text-align: center;
+        font-size: 350%;
+        font-style: italic;
+    }
+
+    .commentForm a {
+    }
+
+        .commentForm a:hover {
+            cursor: pointer;
+        }
+
+    .commentForm input[type=submit] {
+        border: 2px solid burlywood;
+        background-color: white;
+        color: black;
+        font-weight: bold;
+        padding: 12px 20px;
+        font-size: 15px;
+        font-family: Arial;
+        display: inline-block;
+    }
+
+        .commentForm input[type=submit]:hover {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            cursor: pointer;
+        }
+
+#commentForm {
+    width: 90%;
+    height: 55%;
+    margin-bottom: 7%;
+    margin-left: 5%;
+    background-color: white;
+    position: absolute;
+    border: 2px black solid;
+    box-shadow: 0 0 50px 0px black;
+    overflow: auto;
+    text-align: center;
+    display: none;
+}
+
+    #commentForm h1 {
+        color: burlywood;
+        text-align: center;
+        font-size: 350%;
+        font-style: italic;
+    }
+
+    #commentForm a {
+    }
+
+        #commentForm a:hover {
+            cursor: pointer;
+        }
+
+
+/*Desktop*/
+@media only screen and (min-width: 970px) {
+    .infoForm {
+        width: 45%;
+        height: 55%;
+        margin-bottom: 7%;
+        margin-left: 30%;
+        background-color: white;
+        position: absolute;
+        border: 2px black solid;
+        box-shadow: 0 0 50px 0px black;
+        overflow: auto;
+        text-align: center;
+        animation: 1s ease-out 0s 1 openForm;
+    }
+
+        .infoForm h1 {
+            animation: fadein 3s;
+            color: burlywood;
+            text-align: center;
+            font-size: 350%;
+            font-style: italic;
+        }
+
+    hr {
+        animation: fadein 3s;
+    }
+
+
+
+    #tableUsers {
+        display: inline-block;
+        animation: fadein 3s;
+    }
+
+    td {
+        width: 20%;
+        border-bottom: 2px solid black;
+        padding-top: 3%;
+    }
+
+    tr {
+        border-bottom: 2px solid black;
+    }
+
+
+    .next {
+        background-color: burlywood;
+        color: white;
+    }
+
+    .prev {
+        background-color: burlywood;
+        color: white;
+    }
+
+    .round {
+        border-radius: 50%;
+    }
+
+    #roundButton {
+        text-decoration: none;
+        display: inline-block;
+        padding: 8px 16px;
+    }
+
+        #roundButton:hover {
+            background-color: #ddd;
+            color: black;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            cursor: pointer;
+        }
+
+    #userRoundButton {
+        text-decoration: none;
+        display: inline-block;
+        padding: 8px 16px;
+        animation: fadein 3s;
+    }
+
+        #userRoundButton:hover {
+            background-color: #ddd;
+            color: black;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            cursor: pointer;
+        }
+
+    .infoForm input[type=submit] {
+        border: 2px solid burlywood;
+        background-color: white;
+        color: black;
+        font-weight: bold;
+        padding: 12px 20px;
+        font-size: 15px;
+        font-family: Arial;
+        display: inline-block;
+    }
+
+        .infoForm input[type=submit]:hover {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            cursor: pointer;
+        }
+
+    .buttonClass {
+        border: 2px solid burlywood;
+        background-color: white;
+        color: black;
+        font-weight: bold;
+        padding: 12px 20px;
+        font-size: 15px;
+        text-decoration: none;
+        font-family: Arial;
+        display: inline-block;
+    }
+
+        .buttonClass:hover {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            cursor: pointer;
+            background-color: white;
+        }
+
+
+    .orderHistoryForm {
+        width: 45%;
+        height: 55%;
+        margin-bottom: 7%;
+        margin-left: 30%;
+        background-color: white;
+        position: absolute;
+        border: 2px black solid;
+        box-shadow: 0 0 50px 0px black;
+        overflow: auto;
+        text-align: center;
+        display: none;
+    }
+
+        .orderHistoryForm h1 {
+            color: burlywood;
+            text-align: center;
+            font-size: 350%;
+            font-style: italic;
+        }
+
+        .orderHistoryForm a {
+        }
+
+            .orderHistoryForm a:hover {
+                cursor: pointer;
+            }
+
+
+    .commentForm {
+        width: 45%;
+        height: 55%;
+        margin-bottom: 7%;
+        margin-left: 30%;
+        background-color: white;
+        position: absolute;
+        border: 2px black solid;
+        box-shadow: 0 0 50px 0px black;
+        overflow: auto;
+        text-align: center;
+        display: none;
+    }
+
+        .commentForm h1 {
+            color: burlywood;
+            text-align: center;
+            font-size: 350%;
+            font-style: italic;
+        }
+
+        .commentForm a {
+        }
+
+            .commentForm a:hover {
+                cursor: pointer;
+            }
+
+        .commentForm input[type=submit] {
+            border: 2px solid burlywood;
+            background-color: white;
+            color: black;
+            font-weight: bold;
+            padding: 12px 20px;
+            font-size: 15px;
+            font-family: Arial;
+            display: inline-block;
+        }
+
+            .commentForm input[type=submit]:hover {
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                cursor: pointer;
+            }
+
+    #commentForm {
+        width: 45%;
+        height: 55%;
+        margin-bottom: 7%;
+        margin-left: 30%;
+        background-color: white;
+        position: absolute;
+        border: 2px black solid;
+        box-shadow: 0 0 50px 0px black;
+        overflow: auto;
+        text-align: center;
+        display: none;
+    }
+
+        #commentForm h1 {
+            color: burlywood;
+            text-align: center;
+            font-size: 350%;
+            font-style: italic;
+        }
+
+        #commentForm a {
+        }
+
+            #commentForm a:hover {
+                cursor: pointer;
+            }
+}

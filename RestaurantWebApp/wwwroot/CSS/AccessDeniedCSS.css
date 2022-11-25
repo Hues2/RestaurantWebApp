@@ -1,0 +1,69 @@
+﻿body {
+}
+
+@keyframes openForm {
+    0% {
+        height: 0;
+    }
+
+    100% {
+        height: 60%;
+    }
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+.form {
+    width: 55%;
+    animation: 1s ease-out 0s 1 openForm;
+    height: 60%;
+    margin-bottom: 5%;
+    margin-left: 25%;
+    background-color: white;
+    position: absolute;
+    border: 2px black solid;
+    box-shadow: 0 0 50px 0px black;
+    overflow: scroll;
+    text-align: center;
+}
+
+.form h1 {
+    animation: fadein 4s;
+    color: burlywood;
+    text-align: center;
+    font-size: 350%;
+    font-style: italic;
+}
+
+hr {
+    animation: fadein 3s;
+}
+
+.message {
+    animation: fadein 4s;
+    text-align: center;
+    padding-top: 5%;
+}
+    .message h2 {
+        margin-bottom:5%;
+    }
+.message a{
+    
+    color:black;
+    text-decoration:underline;
+}
+.message a:hover{
+    color:burlywood;
+}
+.message a:visited{
+    color:black;
+}
